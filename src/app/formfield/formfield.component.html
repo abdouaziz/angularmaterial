@@ -1,0 +1,70 @@
+
+<div class="container">
+    <form >
+            <mat-form-field class="form-field">
+                <mat-label>Nom </mat-label>
+                <input matInput placeholder="name">
+                <mat-hint>Uniquement des Alphabets</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+
+         <!--        //il faut importer reactivemodule pour un email correct -->
+                <input matInput placeholder="Email" [formControl]="emailFormControl">
+               <mat-error *ngIf="emailFormControl.hasError('required')" > Email is required</mat-error>
+               <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')" >
+                 Please enter a valid email
+               </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+                <mat-label>Prenom </mat-label>
+                <input matInput placeholder="prenom">
+                <mat-hint>Uniquement des Alphabets</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+                <mat-label>Date </mat-label>
+                <input matInput type="date" placeholder="prenom">
+                <mat-hint>Uniquement des Alphabets</mat-hint>
+            </mat-form-field>
+           
+            <mat-form-field class="form-field">
+                <mat-label>Adress</mat-label>
+                <input matInput placeholder="adress" maxlength="30" #zipcode>
+                <mat-hint align="end" color="primary">{{zipcode.value.length}}/30</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+                <mat-label>Adress</mat-label>
+                <input matInput placeholder="adress" maxlength="100" #message>
+                <mat-hint align="start">left your message</mat-hint>
+                <mat-hint align="end" color="primary">{{message.value.length}}/100</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Select a city </mat-label>
+              <mat-select>
+                <mat-option>---</mat-option>
+                <mat-option *ngFor="let city of cities" value="city" > :{{city}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+           
+        </form>
+        <button mat-button color="primary">Envoyer</button>
+        <button mat-raised-button color="primary" >Enregistrer</button>
+        <p></p>
+        <button mat-flat-button color="accent">Envoyer</button>
+
+        <button mat-fab color="primary">Save</button>
+
+
+        <p></p>
+        <mat-button-toggle-group vertical>
+          <mat-button-toggle value="mtdsi">MTDSI</mat-button-toggle>
+          <mat-button-toggle value="ltdsi" >LTDSI</mat-button-toggle>
+          <mat-button-toggle value="dtdsi">UTH</mat-button-toggle>
+        </mat-button-toggle-group>
+
+</div>

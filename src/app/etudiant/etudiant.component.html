@@ -1,0 +1,22 @@
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+           <th>Nom</th><th>Prenom</th><th>DateNaissance</th><th>Classe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of listEtudiant.content">
+           
+            <td>{{e.nom}}</td>
+            <td>{{e.prenom}}</td>
+            <td>{{e.dateNaissance}}</td>
+            <td>{{e.classe}}</td>
+
+          </tr>
+        </tbody>
+      </table>
+  
+</div>
+
